@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_job/home/home.dart';
+import 'package:my_job/welcome/sign_in.dart';
 import 'package:my_job/welcome/splash_screen.dart';
 
 void main(List<String> args) => runApp(const MyApp());

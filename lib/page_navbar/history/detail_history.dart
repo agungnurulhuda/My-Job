@@ -15,11 +15,13 @@ class DetailHistory extends StatelessWidget {
         children: [
           Stack(children: [
             Container(
-              foregroundDecoration: const BoxDecoration(color: Color(0x80000000)),
+              foregroundDecoration:
+                  const BoxDecoration(color: Color(0x80000000)),
               height: 265,
+              width: MediaQuery.of(context).size.width,
               child: Image.asset(
                 'assets/images/history-images.jpg',
-                alignment: Alignment.topCenter,
+                fit: BoxFit.cover,
               ),
             ),
             SafeArea(
