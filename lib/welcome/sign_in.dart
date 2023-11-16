@@ -195,12 +195,13 @@ class _SignInState extends State<SignIn> {
                           ElevatedButton(
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    duration: const Duration(milliseconds: 100),
-                                    child: const Home(),
-                                    type: PageTransitionType.fade,
-                                  ));
+                                context,
+                                PageTransition(
+                                  duration: const Duration(milliseconds: 100),
+                                  child: const Home(),
+                                  type: PageTransitionType.fade,
+                                ),
+                              );
                             },
                             child: const Text(
                               'Sign in',

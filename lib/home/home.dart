@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_job/news/detail_news.dart';
+import 'package:my_job/news/view_all.dart';
 
 import 'package:page_transition/page_transition.dart';
 
@@ -554,9 +556,21 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 StylesText.heading4SemiBold('News', color: black),
-                StylesText.heading5Regular(
-                  'View All',
-                  color: primaryColor,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        duration: const Duration(milliseconds: 100),
+                        child: const ViewAllNews(),
+                        type: PageTransitionType.fade,
+                      ),
+                    );
+                  },
+                  child: StylesText.heading5Regular(
+                    'View All',
+                    color: primaryColor,
+                  ),
                 )
               ],
             ),
@@ -564,27 +578,36 @@ class HomePage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 16, bottom: 24),
             child: SizedBox(
-              height: 200,
+              height: 210,
               child: ListView.separated(
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      width: 12,
-                    );
-                  },
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: bannerImages.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return SizedBox(
-                      width: MediaQuery.of(context).size.width -
-                          (MediaQuery.of(context).size.width * 0.2),
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    width: 12,
+                  );
+                },
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                scrollDirection: Axis.horizontal,
+                itemCount: bannerImages.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          duration: const Duration(milliseconds: 100),
+                          child: const DetailNews(),
+                          type: PageTransitionType.fade,
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * .7,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
                             height: 125,
-                            width: MediaQuery.of(context).size.width -
-                                (MediaQuery.of(context).size.width * 0.2),
+                            width: MediaQuery.of(context).size.width * .7,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: Image.asset(
@@ -596,12 +619,39 @@ class HomePage extends StatelessWidget {
                           const SizedBox(
                             height: 8,
                           ),
-                          StylesText.heading4Medium(bannerNews[index][1],
+                          StylesText.heading6Medium(bannerNews[index][1],
                               color: black),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Row(
+                            children: [
+                              StylesText.body3Regular(
+                                'Agung Nurul Huda',
+                                color: primaryColor,
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              CircleAvatar(
+                                backgroundColor: Color(0xFFC4C4C4),
+                                radius: 2,
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              StylesText.body3Regular(
+                                '4 menit yang lalu',
+                                color: Color(0xFFA0A0A0),
+                              ),
+                            ],
+                          )
                         ],
                       ),
-                    );
-                  }),
+                    ),
+                  );
+                },
+              ),
             ),
           )
         ],

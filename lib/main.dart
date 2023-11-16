@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_job/home/home.dart';
+import 'package:my_job/news/detail_news.dart';
+import 'package:my_job/news/view_all.dart';
+import 'package:my_job/page_navbar/history/history.dart';
 import 'package:my_job/welcome/sign_in.dart';
 import 'package:my_job/welcome/splash_screen.dart';
 
