@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_job/app_styles.dart';
 import 'package:my_job/page_navbar/profile/create_new_password.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../design_system/colors.dart';
 import '../../design_system/text_styles.dart';
+import '../../size_config.dart';
 import '../../welcome/first_screen.dart';
 import 'edit_profile.dart';
 
@@ -13,6 +15,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -20,7 +23,11 @@ class Profile extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(20, 40, 20, 24),
-            child: StylesText.heading2SemiBold('Profile', color: black),
+            child: Text(
+              'Profile',
+              style:
+                  kPoppinsSemiBold.copyWith(fontSize: kSize16, color: kBlack),
+            ),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
@@ -34,17 +41,26 @@ class Profile extends StatelessWidget {
                 const SizedBox(
                   height: 4,
                 ),
-                StylesText.heading4SemiBold('Agung NH', color: black),
+                Text(
+                  'Agung NH',
+                  style: kPoppinsSemiBold.copyWith(
+                      fontSize: kSize16, color: kBlack),
+                ),
                 const SizedBox(
                   height: 2,
                 ),
-                StylesText.body3Regular(
+                Text(
                   'agungnurulhuda@gmail.com',
-                  color: grey,
+                  style: kNunitoRegular.copyWith(
+                      fontSize: kSize14, color: kNeutral70),
                 ),
-                StylesText.body3Regular(
-                  '0896-2279-2400',
-                  color: grey,
+                SizedBox(
+                  height: kSize4,
+                ),
+                Text(
+                  '0895-2648-3846',
+                  style: kNunitoRegular.copyWith(
+                      fontSize: kSize14, color: kNeutral70),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 12),
@@ -56,166 +72,183 @@ class Profile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: StylesText.body1Medium(
+                  child: Text(
                     'Satpam',
-                    color: const Color(0xFF00ADD6),
+                    style: kNunitoRegular.copyWith(
+                        fontSize: kSize16, color: const Color(0xFF00ADD6)),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 48),
-                  width: MediaQuery.of(context).size.width -
-                      (MediaQuery.of(context).size.width * 0.1),
-                  padding: const EdgeInsets.all(24),
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFECEEF2)),
-                      borderRadius: BorderRadius.circular(12),
+                SizedBox(
+                  height: kSize40,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: kSize20),
+                  child: Container(
+                    padding: const EdgeInsets.all(24),
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFECEEF2)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      shadows: const [
+                        BoxShadow(
+                          color: Color(0x087281DF),
+                          blurRadius: 4.11,
+                          offset: Offset(0, 0.52),
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color(0x0C7281DF),
+                          blurRadius: 6.99,
+                          offset: Offset(0, 1.78),
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color(0x0F7281DF),
+                          blurRadius: 10.20,
+                          offset: Offset(0, 4.11),
+                          spreadRadius: 0,
+                        )
+                      ],
                     ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x087281DF),
-                        blurRadius: 4.11,
-                        offset: Offset(0, 0.52),
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color(0x0C7281DF),
-                        blurRadius: 6.99,
-                        offset: Offset(0, 1.78),
-                        spreadRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: Color(0x0F7281DF),
-                        blurRadius: 10.20,
-                        offset: Offset(0, 4.11),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
+                    child: Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
                               context,
                               PageTransition(
                                 duration: const Duration(milliseconds: 100),
                                 child: const EditProfile(),
                                 type: PageTransitionType.fade,
-                              ));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.only(bottom: 16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Iconsax.edit_2,
-                                    size: 20,
-                                    color: black2,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  StylesText.body1Medium(
-                                    'Edit Profile',
-                                    color: black2,
-                                  )
-                                ],
                               ),
-                              const Icon(
-                                Iconsax.arrow_right_3,
-                                size: 20,
-                                color: black2,
-                              )
-                            ],
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.only(bottom: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Iconsax.edit_2,
+                                      size: 20,
+                                      color: black2,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      'Edit Profile',
+                                      style: kNunitoRegular.copyWith(
+                                          fontSize: kSize16, color: kBlack),
+                                    )
+                                  ],
+                                ),
+                                const Icon(
+                                  Iconsax.arrow_right_3,
+                                  size: 20,
+                                  color: black2,
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const Divider(
-                        color: Color(0xFFE0E0E0),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                duration: const Duration(milliseconds: 100),
-                                child: const CreateNewPassword(),
-                                type: PageTransitionType.fade,
-                              ));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.only(top: 16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Iconsax.key,
-                                    size: 20,
-                                    color: black2,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  StylesText.body1Medium(
-                                    'Change Password',
-                                    color: black2,
-                                  )
-                                ],
-                              ),
-                              const Icon(
-                                Iconsax.arrow_right_3,
-                                size: 20,
-                                color: black2,
-                              )
-                            ],
+                        const Divider(
+                          color: Color(0xFFE0E0E0),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                PageTransition(
+                                  duration: const Duration(milliseconds: 100),
+                                  child: const CreateNewPassword(),
+                                  type: PageTransitionType.fade,
+                                ));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Iconsax.key,
+                                      size: 20,
+                                      color: black2,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      'Change Password',
+                                      style: kNunitoRegular.copyWith(
+                                          fontSize: kSize16, color: kBlack),
+                                    )
+                                  ],
+                                ),
+                                const Icon(
+                                  Iconsax.arrow_right_3,
+                                  size: 20,
+                                  color: black2,
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  margin: const EdgeInsets.only(top: 24, bottom: 16),
-                  child: const Divider(color: Color(0xFFD1D2D4)),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width -
-                      (MediaQuery.of(context).size.width * 0.1),
-                  padding: const EdgeInsets.all(10),
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD1D2D4)),
-                      borderRadius: BorderRadius.circular(12),
+                      ],
                     ),
                   ),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushReplacement(
-                        PageTransition(
-                            child: const WelcomeScreen(),
-                            type: PageTransitionType.fade),
-                      );
-                    },
-                    child: Row(
-                      children: [
-                        const Icon(Iconsax.logout, color: black),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        StylesText.body1Regular('Sign out', color: black)
-                      ],
+                ),
+                SizedBox(
+                  height: kSize16,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: kSize20),
+                  child: const Divider(),
+                ),
+                SizedBox(
+                  height: kSize16,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: kSize20),
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD1D2D4)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(
+                          PageTransition(
+                              child: const WelcomeScreen(),
+                              type: PageTransitionType.fade),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          const Icon(Iconsax.logout, color: black),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            'Logout',
+                            style: kNunitoRegular.copyWith(
+                                fontSize: kSize16, color: kBlack),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )

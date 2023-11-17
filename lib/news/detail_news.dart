@@ -5,6 +5,8 @@ import 'package:page_transition/page_transition.dart';
 import '../../design_system/colors.dart';
 import '../../design_system/text_styles.dart';
 import '../../home/home.dart';
+import '../app_styles.dart';
+import '../size_config.dart';
 
 class DetailNews extends StatefulWidget {
   const DetailNews({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class DetailNews extends StatefulWidget {
 class _DetailNewsState extends State<DetailNews> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 72,
@@ -41,9 +44,9 @@ class _DetailNewsState extends State<DetailNews> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 ClipRRect(
@@ -51,43 +54,39 @@ class _DetailNewsState extends State<DetailNews> {
                   child: Image.asset(
                     'assets/images/banner-1.png',
                     width: MediaQuery.of(context).size.width,
-                    height: 130,
+                    height: SizeConfig.blockSizeHorizontal! * 40,
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    StylesText.body3Regular(
+                    Text(
                       'Agung Nurul Huda',
-                      color: primaryColor,
+                      style: kPoppinsMedium.copyWith(
+                          fontSize: kSize14, color: kBlack),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
-                    CircleAvatar(
-                      backgroundColor: Color(0xFFC4C4C4),
-                      radius: 2,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    StylesText.body3Regular(
-                      '4 menit yang lalu',
-                      color: Color(0xFFA0A0A0),
+                    Text(
+                      'Kamis, 29 Oktober 2023',
+                      style: kNunitoRegular.copyWith(
+                          fontSize: kSize14, color: kNeutral70),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 StylesText.heading5Medium(
                   'WHO classifies triple-mutant Covid variant from India as global health risk',
                   color: black,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 StylesText.body2Regular(

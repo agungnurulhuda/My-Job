@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:my_job/app_styles.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../design_system/text_styles.dart';
+import '../size_config.dart';
 import 'first_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -10,6 +12,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return AnimatedSplashScreen(
       nextScreen: const WelcomeScreen(),
       pageTransitionType: PageTransitionType.fade,
@@ -27,8 +30,16 @@ class SplashScreen extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            StylesText.heading3SemiBold('Welcome to'),
-            StylesText.heading3SemiBold('My Job'),
+            Text(
+              'Welcome to',
+              style:
+                  kPoppinsSemiBold.copyWith(fontSize: kSize28, color: kBlack),
+            ),
+            Text(
+              'My Job',
+              style:
+                  kPoppinsSemiBold.copyWith(fontSize: kSize28, color: kBlack),
+            ),
           ],
         ),
       ),

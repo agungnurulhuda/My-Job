@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../../app_styles.dart';
 import '../../design_system/colors.dart';
 import '../../design_system/text_styles.dart';
 import '../../home/home.dart';
+import '../../size_config.dart';
 
 class CreateNewPassword extends StatefulWidget {
   const CreateNewPassword({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -57,17 +60,16 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  StylesText.heading2SemiBold('Create new password',
-                      color: black),
+                  Text('Create new password',
+                      style: kPoppinsSemiBold.copyWith(
+                          fontSize: kSize24, color: kBlack)),
                   const SizedBox(
                     height: 8,
                   ),
-                  SizedBox(
-                    width: 280,
-                    child: StylesText.body2Regular(
-                      'Your new password must be unique from those previously used.',
-                      color: grey,
-                    ),
+                  Text(
+                    'Your new password must be unique from\nthose previously used.',
+                    style:
+                        kNunitoRegular.copyWith(fontSize: kSize14, color: grey),
                   )
                 ],
               ),
@@ -107,7 +109,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  StylesText.heading4Medium('Last password ', color: black),
+                  Text(
+                    'Last password',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
+                  ),
                   const SizedBox(
                     height: 12,
                   ),
@@ -115,11 +121,12 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     obscureText: isLockLastPassword,
                     style: const TextStyle(
                       fontSize: 16,
-                      color: Colors.black,
+                      color: kBlack,
                     ),
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
                       labelText: 'Last password',
                       enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
@@ -127,8 +134,10 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                           borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle: const TextStyle(
-                          color: Color(0xFF8391A1), fontSize: 14),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
                       suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -143,7 +152,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   const SizedBox(
                     height: 20,
                   ),
-                  StylesText.heading4Medium('New password', color: black),
+                  Text(
+                    'New password',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
+                  ),
                   const SizedBox(
                     height: 12,
                   ),
@@ -151,11 +164,12 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     obscureText: isLockNewPassword,
                     style: const TextStyle(
                       fontSize: 16,
-                      color: Colors.black,
+                      color: kBlack,
                     ),
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
                       labelText: 'New password',
                       enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
@@ -163,8 +177,10 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                           borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle: const TextStyle(
-                          color: Color(0xFF8391A1), fontSize: 14),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
                       suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -179,7 +195,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   const SizedBox(
                     height: 20,
                   ),
-                  StylesText.heading4Medium('Confirm password', color: black),
+                  Text(
+                    'Confirm password',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
+                  ),
                   const SizedBox(
                     height: 12,
                   ),
@@ -191,7 +211,8 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     ),
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
                       labelText: 'Confirm password',
                       enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
@@ -199,8 +220,10 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                           borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle: const TextStyle(
-                          color: Color(0xFF8391A1), fontSize: 14),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
                       suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -224,22 +247,17 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 type: PageTransitionType.fade,
                               ));
                         },
-                        child: const Text(
-                          'Change password',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Poppins'),
-                        ),
                         style: ElevatedButton.styleFrom(
-                            primary: primaryColor,
-                            fixedSize: Size(
-                                MediaQuery.of(context).size.width -
-                                    (MediaQuery.of(context).size.width * 0.1),
-                                52),
+                            backgroundColor: primaryColor,
+                            fixedSize: Size(SizeConfig.screenWidth!, 52),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             )),
+                        child: Text(
+                          'Change password',
+                          style: kPoppinsSemiBold.copyWith(
+                              fontSize: kSize14, color: kWhite),
+                        ),
                       )),
                 ],
               ),

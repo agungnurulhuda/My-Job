@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_job/app_styles.dart';
 import 'package:my_job/news/detail_news.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../design_system/colors.dart';
 import '../../design_system/text_styles.dart';
 import '../../home/home.dart';
+import '../size_config.dart';
 
 class ViewAllNews extends StatefulWidget {
   const ViewAllNews({Key? key}) : super(key: key);
@@ -38,6 +40,7 @@ class _ViewAllNewsState extends State<ViewAllNews> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 72,
@@ -52,10 +55,13 @@ class _ViewAllNewsState extends State<ViewAllNews> {
           },
           icon: const Icon(
             Iconsax.arrow_left_2,
-            color: black,
+            color: kBlack,
           ),
         ),
-        title: StylesText.heading4SemiBold('News', color: black),
+        title: Text(
+          'News',
+          style: kPoppinsMedium.copyWith(fontSize: kSize16, color: kBlack),
+        ),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -84,34 +90,34 @@ class _ViewAllNewsState extends State<ViewAllNews> {
                           );
                         },
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  StylesText.heading6Medium(e[0], color: black),
-                                  SizedBox(
-                                    height: 4,
+                                  Text(
+                                    e[0],
+                                    style: kPoppinsMedium.copyWith(
+                                        fontSize: kSize14, color: kBlack),
                                   ),
-                                  Row(
+                                  SizedBox(
+                                    height: kSize8,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      StylesText.body3Regular(
+                                      Text(
                                         e[1],
-                                        color: primaryColor,
+                                        style: kPoppinsMedium.copyWith(
+                                            fontSize: kSize12, color: kPrimary),
                                       ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      CircleAvatar(
-                                        backgroundColor: Color(0xFFC4C4C4),
-                                        radius: 2,
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      StylesText.body3Regular(
+                                      Text(
                                         e[2],
-                                        color: Color(0xFFA0A0A0),
+                                        style: kNunitoRegular.copyWith(
+                                            fontSize: kSize12,
+                                            color: kNeutral70),
                                       ),
                                     ],
                                   )
@@ -119,7 +125,7 @@ class _ViewAllNewsState extends State<ViewAllNews> {
                               ),
                             ),
                             SizedBox(
-                              width: 40,
+                              width: kSize40,
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
@@ -134,7 +140,7 @@ class _ViewAllNewsState extends State<ViewAllNews> {
                         ),
                       ),
                       SizedBox(
-                        height: 16,
+                        height: kSize24,
                       )
                     ],
                   ),

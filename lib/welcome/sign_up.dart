@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../app_styles.dart';
 import '../design_system/colors.dart';
 import '../design_system/text_styles.dart';
 import '../home/home.dart';
+import '../size_config.dart';
 import 'sign_in.dart';
 
 class SignUp extends StatefulWidget {
@@ -20,6 +22,7 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -33,8 +36,6 @@ class _SignUpState extends State<SignUp> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  child:
-                      const Icon(Iconsax.arrow_left_2, size: 18, color: black),
                   padding: const EdgeInsets.fromLTRB(10, 10, 12, 10),
                   decoration: ShapeDecoration(
                     color: Colors.white,
@@ -44,25 +45,23 @@ class _SignUpState extends State<SignUp> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
+                  child:
+                      const Icon(Iconsax.arrow_left_2, size: 18, color: black),
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  StylesText.heading2SemiBold('Hello! Register to get',
-                      color: black),
-                  StylesText.heading2SemiBold('Started', color: black),
-                ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: kSize20),
+              child: Text(
+                'Hello! Register to get\nStarted',
+                textAlign: TextAlign.start,
+                style:
+                    kPoppinsSemiBold.copyWith(fontSize: kSize24, color: kBlack),
               ),
             ),
             Container(
-              padding: const EdgeInsetsDirectional.all(20),
+              padding: EdgeInsetsDirectional.all(kSize20),
               margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-              width: MediaQuery.of(context).size.width -
-                  (MediaQuery.of(context).size.width * 0.1),
               decoration: ShapeDecoration(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -93,71 +92,90 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  StylesText.heading4Medium('Username ', color: black),
-                  const SizedBox(
-                    height: 12,
+                  Text(
+                    'Username',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
                   ),
-                  const TextField(
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: EdgeInsets.fromLTRB(16, 18, 16, 18),
-                      labelText: 'Enter your email',
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle:
-                          TextStyle(color: Color(0xFF8391A1), fontSize: 14),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  StylesText.heading4Medium('Email', color: black),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  const TextField(
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
-                    decoration: InputDecoration(
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: EdgeInsets.fromLTRB(16, 18, 16, 18),
-                      labelText: 'Eexample@gmail.com',
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle:
-                          TextStyle(color: Color(0xFF8391A1), fontSize: 14),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  StylesText.heading4Medium('Password', color: black),
                   const SizedBox(
                     height: 12,
                   ),
                   TextField(
-                    obscureText: isLockPassword,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
+                    style: TextStyle(
+                      fontSize: kSize16,
+                      color: kBlack,
                     ),
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
+                      labelText: 'Enter your email',
+                      enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
+                          borderRadius: BorderRadius.all(Radius.circular(12))),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
+                          borderRadius: BorderRadius.all(Radius.circular(12))),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: kSize20,
+                  ),
+                  Text(
+                    'Email address',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  TextField(
+                    style: TextStyle(
+                      fontSize: kSize16,
+                      color: kBlack,
+                    ),
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
+                      labelText: 'Example@gmail.com',
+                      enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
+                          borderRadius: BorderRadius.all(Radius.circular(12))),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFE8ECF4)),
+                          borderRadius: BorderRadius.all(Radius.circular(12))),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: kSize20,
+                  ),
+                  Text(
+                    'Password',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
+                  ),
+                  SizedBox(
+                    height: kSize12,
+                  ),
+                  TextField(
+                    obscureText: isLockPassword,
+                    style: TextStyle(
+                      fontSize: kSize16,
+                      color: kBlack,
+                    ),
+                    decoration: InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
                       labelText: 'Enter your password',
                       enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
@@ -165,8 +183,10 @@ class _SignUpState extends State<SignUp> {
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                           borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle: const TextStyle(
-                          color: Color(0xFF8391A1), fontSize: 14),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
                       suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -178,22 +198,27 @@ class _SignUpState extends State<SignUp> {
                               : const Icon(Iconsax.eye_slash)),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: kSize20,
                   ),
-                  StylesText.heading4Medium('Confirm password', color: black),
-                  const SizedBox(
-                    height: 12,
+                  Text(
+                    'Confirm Password',
+                    style: kPoppinsMedium.copyWith(
+                        fontSize: kSize16, color: kBlack),
+                  ),
+                  SizedBox(
+                    height: kSize12,
                   ),
                   TextField(
                     obscureText: isLockConfirmPassword,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
+                    style: TextStyle(
+                      fontSize: kSize16,
+                      color: kBlack,
                     ),
                     decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      contentPadding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
+                      contentPadding: EdgeInsets.fromLTRB(
+                          kSize16, kSize18, kSize16, kSize18),
                       labelText: 'Confirm password',
                       enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
@@ -201,8 +226,10 @@ class _SignUpState extends State<SignUp> {
                       focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                           borderRadius: BorderRadius.all(Radius.circular(12))),
-                      labelStyle: const TextStyle(
-                          color: Color(0xFF8391A1), fontSize: 14),
+                      labelStyle: kNunitoRegular.copyWith(
+                        fontSize: kSize14,
+                        color: const Color(0xFF8391A1),
+                      ),
                       suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -215,46 +242,43 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   Container(
-                      margin: const EdgeInsets.only(top: 32),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                duration: const Duration(milliseconds: 100),
-                                child: const Home(),
-                                type: PageTransitionType.fade,
-                              ));
-                        },
-                        child: const Text(
-                          'Sign Up',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Poppins'),
+                    margin: const EdgeInsets.only(top: 32),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                              duration: const Duration(milliseconds: 100),
+                              child: const Home(),
+                              type: PageTransitionType.fade,
+                            ));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        fixedSize: Size(SizeConfig.screenWidth!, 52),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        style: ElevatedButton.styleFrom(
-                            primary: primaryColor,
-                            fixedSize: Size(
-                                MediaQuery.of(context).size.width -
-                                    (MediaQuery.of(context).size.width * 0.1),
-                                52),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            )),
-                      )),
+                      ),
+                      child: Text(
+                        'Sign Up',
+                        style: kPoppinsSemiBold.copyWith(
+                            fontSize: kSize16, color: kWhite),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 12, bottom: 24),
-              width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  StylesText.body2Regular(
+                  Text(
                     'Already have an account?',
-                    color: const Color(0xFF989898),
+                    style: kPoppinsRegular.copyWith(
+                        fontSize: kSize14, color: Color(0xFF989898)),
                   ),
                   TextButton(
                       onPressed: () {
@@ -266,9 +290,10 @@ class _SignUpState extends State<SignUp> {
                               type: PageTransitionType.fade,
                             ));
                       },
-                      child: StylesText.body2Bold(
+                      child: Text(
                         'Sign In',
-                        color: primaryColor,
+                        style: kNunitoSemiBold.copyWith(
+                            fontSize: kSize14, color: kPrimary),
                       ))
                 ],
               ),

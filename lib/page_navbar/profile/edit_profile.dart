@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../../app_styles.dart';
 import '../../design_system/colors.dart';
 import '../../design_system/text_styles.dart';
 import '../../home/home.dart';
+import '../../size_config.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 72,
@@ -126,7 +129,7 @@ class _EditProfileState extends State<EditProfile> {
                         backgroundColor: Color(0xFF006EB8),
                         foregroundColor: Colors.white,
                         radius: 16,
-                        child:  Icon(
+                        child: Icon(
                           Icons.add_a_photo,
                           size: 18,
                         )),
@@ -136,8 +139,6 @@ class _EditProfileState extends State<EditProfile> {
           Container(
             padding: const EdgeInsetsDirectional.all(20),
             margin: const EdgeInsets.only(top: 24, left: 20, right: 20),
-            width: MediaQuery.of(context).size.width -
-                (MediaQuery.of(context).size.width * 0.1),
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
@@ -168,79 +169,100 @@ class _EditProfileState extends State<EditProfile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                StylesText.heading4Medium('Full name', color: black),
+                Text(
+                  'Username',
+                  style:
+                      kPoppinsMedium.copyWith(fontSize: kSize16, color: kBlack),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
-                const TextField(
-                  style: TextStyle(
+                TextField(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                   ),
                   decoration: InputDecoration(
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    contentPadding: EdgeInsets.fromLTRB(16, 18, 16, 18),
+                    contentPadding:
+                        EdgeInsets.fromLTRB(kSize16, kSize18, kSize16, kSize18),
                     labelText: 'Enter a new name',
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
-                    labelStyle:
-                        TextStyle(color: Color(0xFF8391A1), fontSize: 14),
+                    labelStyle: kNunitoRegular.copyWith(
+                      fontSize: kSize14,
+                      color: const Color(0xFF8391A1),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                StylesText.heading4Medium('Email', color: black),
+                Text(
+                  'Email',
+                  style:
+                      kPoppinsMedium.copyWith(fontSize: kSize16, color: kBlack),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
-                const TextField(
-                  style: TextStyle(
+                TextField(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                   ),
                   decoration: InputDecoration(
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    contentPadding: EdgeInsets.fromLTRB(16, 18, 16, 18),
+                    contentPadding:
+                        EdgeInsets.fromLTRB(kSize16, kSize18, kSize16, kSize18),
                     labelText: 'Enter a new email',
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
-                    labelStyle:
-                        TextStyle(color: Color(0xFF8391A1), fontSize: 14),
+                    labelStyle: kNunitoRegular.copyWith(
+                      fontSize: kSize14,
+                      color: const Color(0xFF8391A1),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                StylesText.heading4Medium('Number phone', color: black),
+                Text(
+                  'Number phone',
+                  style:
+                      kPoppinsMedium.copyWith(fontSize: kSize16, color: kBlack),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
-                const TextField(
-                  style: TextStyle(
+                TextField(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                   ),
                   decoration: InputDecoration(
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    contentPadding: EdgeInsets.fromLTRB(16, 18, 16, 18),
+                    contentPadding:
+                        EdgeInsets.fromLTRB(kSize16, kSize18, kSize16, kSize18),
                     labelText: 'Enter a new number',
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFE8ECF4)),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
-                    labelStyle:
-                        TextStyle(color: Color(0xFF8391A1), fontSize: 14),
+                    labelStyle: kNunitoRegular.copyWith(
+                      fontSize: kSize14,
+                      color: const Color(0xFF8391A1),
+                    ),
                   ),
                 ),
                 Container(
@@ -255,15 +277,8 @@ class _EditProfileState extends State<EditProfile> {
                               type: PageTransitionType.fade,
                             ));
                       },
-                      child: const Text(
-                        'Change information',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins'),
-                      ),
                       style: ElevatedButton.styleFrom(
-                          primary: primaryColor,
+                          backgroundColor: primaryColor,
                           fixedSize: Size(
                               MediaQuery.of(context).size.width -
                                   (MediaQuery.of(context).size.width * 0.1),
@@ -271,6 +286,11 @@ class _EditProfileState extends State<EditProfile> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           )),
+                      child: Text(
+                        'Change information',
+                        style: kPoppinsSemiBold.copyWith(
+                            fontSize: kSize14, color: kWhite),
+                      ),
                     )),
               ],
             ),

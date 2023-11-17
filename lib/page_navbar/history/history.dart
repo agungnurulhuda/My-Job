@@ -1,11 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:my_job/app_styles.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:flutter_custom_month_picker/flutter_custom_month_picker.dart';
 
 import '../../design_system/colors.dart';
 import '../../design_system/text_styles.dart';
+import '../../size_config.dart';
 import 'detail_history.dart';
 
 class History extends StatefulWidget {
@@ -43,6 +45,7 @@ class _HistoryState extends State<History> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -50,7 +53,7 @@ class _HistoryState extends State<History> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 32,
+              height: kSize32,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -143,42 +146,47 @@ class _HistoryState extends State<History> {
                         child: Image.asset(
                           'assets/images/${e[0]}',
                           alignment: Alignment.topCenter,
-                          width: MediaQuery.of(context).size.width,
+                          width: SizeConfig.screenWidth,
                           height: 100,
                           fit: BoxFit.cover,
                         ),
                       ),
-                      const SizedBox(
-                        height: 12,
+                      SizedBox(
+                        height: kSize12,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            StylesText.heading4SemiBold(
+                            Text(
                               e[1],
-                              color: black,
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            StylesText.body3Regular(
-                              e[2],
-                              color: Color(0xFF727E8C),
+                              style: kPoppinsSemiBold.copyWith(
+                                  fontSize: kSize16, color: kBlack),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
                             SizedBox(
-                              height: 8,
+                              height: kSize8,
                             ),
-                            StylesText.body3Regular(
+                            Text(
+                              e[2],
+                              style: kNunitoRegular.copyWith(
+                                  fontSize: kSize14, color: kNeutral80),
+                            ),
+                            SizedBox(
+                              height: kSize8,
+                            ),
+                            Text(
                               e[3],
-                              color: grey,
+                              style: kNunitoRegular.copyWith(
+                                  fontSize: kSize14, color: kNeutral70),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 12,
+                      SizedBox(
+                        height: kSize12,
                       ),
                       const Divider(),
                       InkWell(
@@ -192,15 +200,14 @@ class _HistoryState extends State<History> {
                               ));
                         },
                         child: Container(
-                          width: MediaQuery.of(context).size.width -
-                              (MediaQuery.of(context).size.width * 0.1),
                           padding: const EdgeInsets.only(
                             bottom: 12,
                           ),
                           child: Center(
-                            child: StylesText.heading5Medium(
+                            child: Text(
                               'Detail',
-                              color: black,
+                              style: kPoppinsMedium.copyWith(
+                                  fontSize: kSize14, color: kBlack),
                             ),
                           ),
                         ),

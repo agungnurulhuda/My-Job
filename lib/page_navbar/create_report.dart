@@ -2,6 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
+import 'package:my_job/app_styles.dart';
+import 'package:my_job/size_config.dart';
 
 import '../design_system/colors.dart';
 import '../design_system/text_styles.dart';
@@ -92,23 +94,28 @@ class _CreateReportState extends State<CreateReport> {
             color: black,
           ),
         ),
-        title: StylesText.heading4SemiBold('Work Report', color: black),
+        title: Text(
+          'Work Report',
+          style: kPoppinsMedium.copyWith(fontSize: kSize16, color: kBlack),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
           child: Container(
-              margin: const EdgeInsets.fromLTRB(20, 24, 24, 24),
+              margin: EdgeInsets.fromLTRB(kSize20, 24, kSize20, 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      StylesText.heading4Medium('Title', color: black),
+                      Text(
+                        'Title',
+                        style: kPoppinsMedium.copyWith(
+                            fontSize: kSize16, color: kBlack),
+                      ),
                       Container(
                         margin: const EdgeInsets.only(top: 8),
-                        width: MediaQuery.of(context).size.width -
-                            (MediaQuery.of(context).size.width * 0.1),
                         decoration: ShapeDecoration(
                           color: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -137,10 +144,10 @@ class _CreateReportState extends State<CreateReport> {
                             )
                           ],
                         ),
-                        child: const TextField(
+                        child: TextField(
                           style: TextStyle(
                             fontSize: 16,
-                            color: Colors.black,
+                            color: kBlack,
                           ),
                           decoration: InputDecoration(
                             floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -154,8 +161,10 @@ class _CreateReportState extends State<CreateReport> {
                                 borderSide: BorderSide.none,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12))),
-                            labelStyle: TextStyle(
-                                color: Color(0xFF8391A1), fontSize: 14),
+                            labelStyle: kNunitoRegular.copyWith(
+                              fontSize: kSize14,
+                              color: const Color(0xFF8391A1),
+                            ),
                           ),
                         ),
                       ),
@@ -170,14 +179,15 @@ class _CreateReportState extends State<CreateReport> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              StylesText.heading4Medium('Location',
-                                  color: black),
+                              Text(
+                                'Location',
+                                style: kPoppinsMedium.copyWith(
+                                    fontSize: kSize16, color: kBlack),
+                              ),
                               Container(
                                   padding:
                                       const EdgeInsets.fromLTRB(16, 0, 16, 0),
                                   margin: const EdgeInsets.only(top: 8),
-                                  width: MediaQuery.of(context).size.width -
-                                      (MediaQuery.of(context).size.width * 0.1),
                                   decoration: ShapeDecoration(
                                     color: Colors.white,
                                     shape: RoundedRectangleBorder(
@@ -210,17 +220,19 @@ class _CreateReportState extends State<CreateReport> {
                                   child: DropdownButtonHideUnderline(
                                     child: DropdownButton<String>(
                                       borderRadius: BorderRadius.circular(12),
-                                      hint: const Text(
+                                      hint: Text(
                                         'Location',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            color: grey, fontSize: 14),
+                                        style: kNunitoRegular.copyWith(
+                                          fontSize: kSize14,
+                                          color: const Color(0xFF8391A1),
+                                        ),
                                       ),
                                       isExpanded: true,
                                       style: const TextStyle(
                                         fontSize: 16,
-                                        color: Colors.black,
+                                        color: kBlack,
                                       ),
                                       iconSize: 32,
                                       icon: const Icon(
@@ -247,7 +259,11 @@ class _CreateReportState extends State<CreateReport> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              StylesText.heading4Medium('Shift', color: black),
+                              Text(
+                                'Shift',
+                                style: kPoppinsMedium.copyWith(
+                                    fontSize: kSize16, color: kBlack),
+                              ),
                               Container(
                                   padding:
                                       const EdgeInsets.fromLTRB(16, 0, 16, 0),
@@ -286,17 +302,19 @@ class _CreateReportState extends State<CreateReport> {
                                   child: DropdownButtonHideUnderline(
                                     child: DropdownButton<String>(
                                       borderRadius: BorderRadius.circular(12),
-                                      hint: const Text(
+                                      hint: Text(
                                         'Shift',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            color: grey, fontSize: 14),
+                                        style: kNunitoRegular.copyWith(
+                                          fontSize: kSize14,
+                                          color: const Color(0xFF8391A1),
+                                        ),
                                       ),
                                       isExpanded: true,
                                       style: const TextStyle(
                                         fontSize: 16,
-                                        color: Colors.black,
+                                        color: kBlack,
                                       ),
                                       iconSize: 32,
                                       icon: const Icon(
@@ -322,13 +340,15 @@ class _CreateReportState extends State<CreateReport> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        StylesText.heading4Medium('Date', color: black),
+                        Text(
+                          'Date',
+                          style: kPoppinsMedium.copyWith(
+                              fontSize: kSize16, color: kBlack),
+                        ),
                         Container(
                           padding: EdgeInsets.only(
                               left: 16, top: 10, right: 16, bottom: 10),
                           margin: const EdgeInsets.only(top: 8),
-                          width: MediaQuery.of(context).size.width -
-                              (MediaQuery.of(context).size.width * 0.1),
                           decoration: ShapeDecoration(
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -390,7 +410,11 @@ class _CreateReportState extends State<CreateReport> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        StylesText.heading4Medium('Description', color: black),
+                        Text(
+                          'Description',
+                          style: kPoppinsMedium.copyWith(
+                              fontSize: kSize16, color: kBlack),
+                        ),
                         Container(
                           margin: const EdgeInsets.only(top: 8),
                           height: 108,
@@ -424,7 +448,7 @@ class _CreateReportState extends State<CreateReport> {
                               )
                             ],
                           ),
-                          child: const TextField(
+                          child: TextField(
                             style: TextStyle(
                               fontSize: 16,
                               color: black,
@@ -445,8 +469,10 @@ class _CreateReportState extends State<CreateReport> {
                                   borderSide: BorderSide.none,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(12))),
-                              labelStyle: TextStyle(
-                                  color: Color(0xFF8391A1), fontSize: 14),
+                              labelStyle: kNunitoRegular.copyWith(
+                                fontSize: kSize14,
+                                color: const Color(0xFF8391A1),
+                              ),
                             ),
                           ),
                         ),
@@ -458,11 +484,13 @@ class _CreateReportState extends State<CreateReport> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        StylesText.heading4Medium('Constrant', color: black),
+                        Text(
+                          'Constrant',
+                          style: kPoppinsMedium.copyWith(
+                              fontSize: kSize16, color: kBlack),
+                        ),
                         Container(
                           margin: const EdgeInsets.only(top: 8),
-                          width: MediaQuery.of(context).size.width -
-                              (MediaQuery.of(context).size.width * 0.1),
                           decoration: ShapeDecoration(
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -491,10 +519,10 @@ class _CreateReportState extends State<CreateReport> {
                               )
                             ],
                           ),
-                          child: const TextField(
+                          child: TextField(
                             style: TextStyle(
                               fontSize: 16,
-                              color: Colors.black,
+                              color: kBlack,
                             ),
                             decoration: InputDecoration(
                               floatingLabelBehavior:
@@ -510,8 +538,10 @@ class _CreateReportState extends State<CreateReport> {
                                   borderSide: BorderSide.none,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(12))),
-                              labelStyle: TextStyle(
-                                  color: Color(0xFF8391A1), fontSize: 14),
+                              labelStyle: kNunitoRegular.copyWith(
+                                fontSize: kSize14,
+                                color: const Color(0xFF8391A1),
+                              ),
                             ),
                           ),
                         ),
@@ -528,8 +558,7 @@ class _CreateReportState extends State<CreateReport> {
                       radius: const Radius.circular(8),
                       padding: const EdgeInsets.all(8),
                       child: Container(
-                        width: MediaQuery.of(context).size.width -
-                            (MediaQuery.of(context).size.width * 0.1),
+                        width: SizeConfig.screenWidth,
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: InkWell(
                           onTap: () {
@@ -611,8 +640,11 @@ class _CreateReportState extends State<CreateReport> {
                             const SizedBox(
                               height: 8,
                             ),
-                            StylesText.heading5SemiBold('Upload your image',
-                                color: black),
+                            Text(
+                              'Upload your image',
+                              style: kPoppinsSemiBold.copyWith(
+                                  fontSize: kSize14, color: kBlack),
+                            ),
                           ]),
                         ),
                       ),
@@ -622,22 +654,17 @@ class _CreateReportState extends State<CreateReport> {
                     margin: const EdgeInsets.only(top: 32),
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: const Text(
-                        'Make a report',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins'),
-                      ),
                       style: ElevatedButton.styleFrom(
-                          primary: primaryColor,
-                          fixedSize: Size(
-                              MediaQuery.of(context).size.width -
-                                  (MediaQuery.of(context).size.width * 0.1),
-                              52),
+                          backgroundColor: primaryColor,
+                          fixedSize: Size(SizeConfig.screenWidth!, 52),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           )),
+                      child: Text(
+                        'Make a report',
+                        style: kPoppinsSemiBold.copyWith(
+                            fontSize: kSize14, color: kWhite),
+                      ),
                     ),
                   ),
                 ],
