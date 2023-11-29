@@ -13,7 +13,6 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(0xFF202933),
       body: SingleChildScrollView(
@@ -22,25 +21,23 @@ class WelcomeScreen extends StatelessWidget {
             Image.asset(
               'assets/images/bg-welcome.jpg',
             ),
-            Expanded(
-              child: Container(
-                height: screenHeight,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment(0.00, -1.00),
-                    end: Alignment(0, 1),
-                    colors: [
-                      Color(0x51202933),
-                      Color(0xB4202933),
-                      Color(0xFF202933),
-                      Color(0xFF202933)
-                    ],
-                  ),
+            Container(
+              height: SizeConfig.screenHeight,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment(0.00, -1.00),
+                  end: Alignment(0, 1),
+                  colors: [
+                    Color(0x51202933),
+                    Color(0xB4202933),
+                    Color(0xFF202933),
+                    Color(0xFF202933)
+                  ],
                 ),
               ),
             ),
             SizedBox(
-              height: screenHeight,
+              height: SizeConfig.screenHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
